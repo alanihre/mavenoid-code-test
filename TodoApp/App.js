@@ -1,23 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import React, { Component } from 'react';
+import TodoListViewController from './ViewControllers/TodoListViewController';
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </ScrollView>
+        <TodoListViewController />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
