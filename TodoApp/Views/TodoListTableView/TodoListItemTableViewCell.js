@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 export default class TodoListItemTableViewCell extends Component {
     render() {
         return (
-            <View style={styles.todoListItemTableViewCell}>
-                <Text style={styles.todoListItemTableViewCellText}>{this.props.item.title}</Text>
-            </View>
+            <TouchableHighlight onPress={this.props.cellPressCallback.bind(null, this.props.item)}>
+                <View style={styles.todoListItemTableViewCell}>
+                    <Text style={styles.todoListItemTableViewCellText}>{this.props.item.title}</Text>
+                </View>
+            </TouchableHighlight>
         );
     }
 }

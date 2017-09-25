@@ -23,9 +23,13 @@ export default class TodoListTableView extends Component {
                     }
                 ]}
                 renderSectionHeader={({section}) => <TodoListItemTableViewHeader title={section.title} />}
-                renderItem = {({item}) => <TodoListItemTableViewCell item={item} />}
+                renderItem = {({item}) => <TodoListItemTableViewCell cellPressCallback={this.cellPressed.bind(this)} item={item} />}
             />
         );
+    }
+
+    cellPressed(item) {
+        this.props.cellPressCallback(item);
     }
 }
 

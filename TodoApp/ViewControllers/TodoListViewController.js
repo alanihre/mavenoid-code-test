@@ -38,10 +38,14 @@ export default class TodoListViewController extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TodoListTableView tasks={ this.state.tasks } doneTasks={ this.state.doneTasks }/>
+                <TodoListTableView cellPressCallback={this.listViewCellPressed.bind(this)} tasks={ this.state.tasks } doneTasks={ this.state.doneTasks }/>
                 <TodoListAddItemView />
             </View>
         );
+    }
+
+    listViewCellPressed(item) {
+        console.log(item);
     }
 }
 
