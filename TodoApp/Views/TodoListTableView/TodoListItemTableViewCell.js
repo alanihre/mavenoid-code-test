@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
     todoListItemTableViewCell: {
         padding: 10,
         height: 44,
-        backgroundColor: '#446CB3'
+        borderBottomColor: '#bbb',
+        borderBottomWidth: StyleSheet.hairlineWidth
     },
     todoListItemTableViewCellText: {
         fontSize: 18,

@@ -31,6 +31,6 @@ export default class TodoListTableView extends Component {
 
 const styles = StyleSheet.create({
     todoListTableView: {
-        backgroundColor: '#446CB3'
+
     },
 });

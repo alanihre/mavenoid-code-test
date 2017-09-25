@@ -14,13 +14,13 @@ export default class TodoListItemTableViewHeader extends Component {
 
 const styles = StyleSheet.create({
     todoListItemTableViewHeader: {
-        height: 30,
+        height: 27,
         padding: 5,
         alignItems: 'center',
-        backgroundColor: '#2C3E50'
+        backgroundColor: 'rgba(247,247,247,1.0)',
     },
     todoListItemTableViewHeaderTitle: {
-        fontSize: 15,
-        color: '#ecf0f1'
+        fontSize: 14,
+        fontWeight: 'bold'
     }
 });
