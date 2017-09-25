@@ -1,4 +1,4 @@
-import LocalStorageProvider from "../../Storage/LocalStorageProvider";
+import LocalStorageProvider from "TodoApp/Storage/LocalStorageProvider";
 import { AsyncStorage } from 'react-native';
 
 it('can store data', () => {
