@@ -11,11 +11,15 @@ export default class TodoListViewController extends Component {
             tasks: [],
             doneTasks: []
         };
+
+        this.todoItemService = new TodoItemService();
     }
 
     componentDidMount() {
-        this.todoItemService = new TodoItemService();
+        this.loadTodoItems();
+    }
 
+    loadTodoItems() {
         let todoItemsPromise = this.todoItemService.getAllTodoItems();
         let doneTodoItemsPromise = this.todoItemService.getAllDoneTodoItems();
         Promise.all([todoItemsPromise, doneTodoItemsPromise]).then(values => {
@@ -31,7 +35,7 @@ export default class TodoListViewController extends Component {
                 [
                     {text: 'Dismiss'},
                 ]
-            )
+            );
         });
     }
 
@@ -45,7 +49,25 @@ export default class TodoListViewController extends Component {
     }
 
     listViewCellPressed(item) {
-        console.log(item);
+        let promise;
+        if (item.done) {
+            promise = this.todoItemService.setNotDone(item);
+        } else {
+            promise = this.todoItemService.setDone(item);
+        }
+        let self = this;
+        promise.then(function (item) {
+            self.loadTodoItems();
+        }).catch(function (error) {
+            console.log(error);
+            Alert.alert(
+                'Error',
+                'The operation could not be completed',
+                [
+                    {text: 'Dismiss'},
+                ]
+            );
+        });
     }
 }
 

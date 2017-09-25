@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 export default class TodoListItemTableViewCell extends Component {
     render() {
         return (
-            <TouchableHighlight onPress={this.props.cellPressCallback.bind(null, this.props.item)}>
+            <TouchableHighlight onPress={this.props.cellPressCallback}>
                 <View style={styles.todoListItemTableViewCell}>
                     <Text style={styles.todoListItemTableViewCellText}>{this.props.item.title}</Text>
                 </View>
