@@ -3,6 +3,7 @@ import { StyleSheet, KeyboardAvoidingView, Alert } from 'react-native';
 import TodoListTableView from 'TodoApp/Views/TodoListTableView/TodoListTableView';
 import TodoItemService from 'TodoApp/Services/TodoItemService';
 import TodoListAddItemView from 'TodoApp/Views/TodoListAddItemView';
+import LocalStorageProvider from "../Storage/LocalStorageProvider";
 
 export default class TodoListViewController extends Component {
     constructor() {
@@ -43,8 +44,7 @@ export default class TodoListViewController extends Component {
         return (
             <KeyboardAvoidingView
                 style={styles.container}
-                behavior="padding"
-            >
+                behavior="padding">
                 <TodoListTableView cellPressCallback={this.listViewCellPressed.bind(this)} tasks={ this.state.tasks } doneTasks={ this.state.doneTasks }/>
                 <TodoListAddItemView newTodoItemSubmittedCallback={this.addItemCallback.bind(this)} />
             </KeyboardAvoidingView>
@@ -74,7 +74,6 @@ export default class TodoListViewController extends Component {
     }
 
     addItemCallback(text) {
-        console.log(text);
         let self = this;
         this.todoItemService.newTodoItem(text).then(function (item) {
             self.loadTodoItems();

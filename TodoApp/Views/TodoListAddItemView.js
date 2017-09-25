@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, Text } from 'react-native';
+import { StyleSheet, View, TextInput, Image } from 'react-native';
 
 export default class TodoListAddItemView extends Component {
     constructor() {
@@ -12,7 +12,7 @@ export default class TodoListAddItemView extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.addIcon}>+</Text>
+                <Image style={styles.addIcon} source={require('TodoApp/resources/img/add_icon.png')} />
                 <TextInput
                     style={styles.textInput}
                     placeholder="Enter a new to-do"
@@ -40,22 +40,19 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'flex-start',
-        height: 44,
+        height: 50,
         paddingVertical: 0,
         paddingHorizontal: 10,
         borderTopWidth: StyleSheet.hairlineWidth,
         borderTopColor: 'gray',
     },
     textInput: {
-        height: 40,
+        height: 45,
     },
     addIcon: {
-        fontSize: 20,
-        textAlign: 'center',
-        height: 25,
-        marginRight: 5,
-        textAlignVertical: 'center',
-        width: 25,
-        paddingTop: 5
+        height: 20,
+        marginRight: 10,
+        width: 20,
+        marginTop: 12 //Not 15 to align with text input text
     }
 });
