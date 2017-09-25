@@ -11,7 +11,9 @@ export default class TodoListViewController extends Component {
             tasks: [],
             doneTasks: []
         };
+    }
 
+    componentDidMount() {
         this.todoItemService = new TodoItemService();
 
         let todoItemsPromise = this.todoItemService.getAllTodoItems();
