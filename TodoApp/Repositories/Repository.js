@@ -63,7 +63,6 @@ export default class Repository {
 
                 itemDataList[item.id] = item;
                 let encodedData = JSON.stringify(itemDataList);
-                console.log(encodedData);
 
                 LocalStorageProvider.storeData(key, encodedData).then(function () {
                     fulfill();

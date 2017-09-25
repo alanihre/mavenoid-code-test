@@ -23,18 +23,18 @@ export default class TodoItemRepository extends Repository {
     }
 
     static addTodoItem(item) {
-        Repository.addItem(TodoItemRepository.TODO_ITEMS_KEY, item);
+        return Repository.addItem(TodoItemRepository.TODO_ITEMS_KEY, item);
     }
 
     static addDoneTodoItem(item) {
-        Repository.addItem(TodoItemRepository.TODO_ITEMS_DONE_KEY, item);
+        return Repository.addItem(TodoItemRepository.TODO_ITEMS_DONE_KEY, item);
     }
 
     static removeTodoItem(item) {
-        Repository.removeItem(TodoItemRepository.TODO_ITEMS_KEY, item);
+        return Repository.removeItem(TodoItemRepository.TODO_ITEMS_KEY, item);
     }
 
     static removeDoneTodoItem(item) {
-        Repository.removeItem(TodoItemRepository.TODO_ITEMS_DONE_KEY, item);
+        return Repository.removeItem(TodoItemRepository.TODO_ITEMS_DONE_KEY, item);
     }
 }

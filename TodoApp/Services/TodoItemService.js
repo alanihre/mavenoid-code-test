@@ -9,7 +9,7 @@ export default class TodoItemService {
         item.title = title;
 
         return new Promise(function (fulfill, reject) {
-            TodoItemRepository.addTodoItem(item).then(function () {
+            TodoItemRepository.addTodoItem(item).then(function (item) {
                 fulfill(item);
             }).catch(function (error) {
                 reject(error);
