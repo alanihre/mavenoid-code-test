@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, Alert } from 'react-native';
 import TodoListTableView from 'TodoApp/Views/TodoListTableView/TodoListTableView';
 import TodoItemService from 'TodoApp/Services/TodoItemService';
 import TodoListAddItemView from 'TodoApp/Views/TodoListAddItemView';
@@ -41,10 +41,13 @@ export default class TodoListViewController extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView
+                style={styles.container}
+                behavior="padding"
+            >
                 <TodoListTableView cellPressCallback={this.listViewCellPressed.bind(this)} tasks={ this.state.tasks } doneTasks={ this.state.doneTasks }/>
-                <TodoListAddItemView />
-            </View>
+                <TodoListAddItemView newTodoItemSubmittedCallback={this.addItemCallback.bind(this)} />
+            </KeyboardAvoidingView>
         );
     }
 
@@ -57,6 +60,23 @@ export default class TodoListViewController extends Component {
         }
         let self = this;
         promise.then(function (item) {
+            self.loadTodoItems();
+        }).catch(function (error) {
+            console.log(error);
+            Alert.alert(
+                'Error',
+                'The operation could not be completed',
+                [
+                    {text: 'Dismiss'},
+                ]
+            );
+        });
+    }
+
+    addItemCallback(text) {
+        console.log(text);
+        let self = this;
+        this.todoItemService.newTodoItem(text).then(function (item) {
             self.loadTodoItems();
         }).catch(function (error) {
             console.log(error);
