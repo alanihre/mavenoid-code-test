@@ -24,8 +24,8 @@ export default class TodoListViewController extends Component {
         let doneTodoItemsPromise = this.todoItemService.getAllDoneTodoItems();
         Promise.all([todoItemsPromise, doneTodoItemsPromise]).then(values => {
             this.setState({
-                tasks: values[0],
-                doneTasks: values[1]
+                tasks: values[0].reverse(),
+                doneTasks: values[1].reverse()
             });
         }, reason => {
             console.log(reason);
